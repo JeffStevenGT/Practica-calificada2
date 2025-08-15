@@ -4,7 +4,7 @@ export default function TarjetaImagen({ foto }) {
       <img
         src={foto.src.medium}
         alt={foto.alt}
-        className="w-full h-36 object-cover"
+        className="w-full h-36 object-cover scale-[1] transition-transform duration-[2250ms] hover:scale-[1.5]"
       />
     </div>
   );
