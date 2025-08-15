@@ -4,6 +4,7 @@ import Categorias from "./componentes/Categorias";
 import Galeria from "./componentes/Galeria";
 import { obtenerFotosPorCategoria, buscarFotos } from "./servicios/apiPexels";
 import GitHub from "./componentes/GitHub";
+import logo from "./assets/snapshot.png";
 
 function App() {
   const [fotos, setFotos] = useState([]);
@@ -44,7 +45,7 @@ function App() {
     <>
       <GitHub />
       <div className="min-h-screen w-screen bg-gray-50 pt-20 flex flex-col items-center relative">
-        <img src="../public/snapshot.png" alt="logo" className="w-60 mb-10" />
+        <img src={logo} alt="logo" className="w-60 mb-10" />
         <main className=" px-64 flex flex-col justify-center">
           <Buscador onBuscar={manejarBusqueda} />
           <Categorias
