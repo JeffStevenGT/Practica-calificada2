@@ -3,6 +3,7 @@ import Buscador from "./componentes/Buscador";
 import Categorias from "./componentes/Categorias";
 import Galeria from "./componentes/Galeria";
 import { obtenerFotosPorCategoria, buscarFotos } from "./servicios/apiPexels";
+import GitHub from "./componentes/GitHub";
 
 function App() {
   const [fotos, setFotos] = useState([]);
@@ -40,27 +41,28 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen w-screen bg-gray-100 pt-20 flex flex-col items-center">
-      <img src="../public/snapshot.png" alt="logo" className="w-60" />
+    <>
+      <GitHub />
+      <div className="min-h-screen w-screen bg-gray-50 pt-20 flex flex-col items-center relative">
+        <img src="../public/snapshot.png" alt="logo" className="w-60 mb-10" />
+        <main className=" px-64 flex flex-col justify-center">
+          <Buscador onBuscar={manejarBusqueda} />
+          <Categorias
+            categorias={categorias}
+            activa={categoriaActual}
+            onChange={manejarCambioCategoria}
+          />
 
-      <main className=" px-64 flex flex-col justify-center">
-        <Buscador onBuscar={manejarBusqueda} />
-        <Categorias
-          categorias={categorias}
-          activa={categoriaActual}
-          onChange={manejarCambioCategoria}
-        />
+          <h2 className="text-2xl font-semibold my-4 ">
+            {terminoBusqueda
+              ? `Resultados para "${terminoBusqueda}"`
+              : `Imágenes de ${categoriaActual}`}
+          </h2>
 
-        {/* Título dinámico */}
-        <h2 className="text-2xl font-semibold my-4 capitalize">
-          {terminoBusqueda
-            ? `Resultados para "${terminoBusqueda}"`
-            : `Imágenes de ${categoriaActual}`}
-        </h2>
-
-        <Galeria fotos={fotos} cargando={cargando} />
-      </main>
-    </div>
+          <Galeria fotos={fotos} cargando={cargando} />
+        </main>
+      </div>
+    </>
   );
 }
 

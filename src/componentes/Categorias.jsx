@@ -1,15 +1,11 @@
 export default function Categorias({ categorias, activa, onChange }) {
   return (
-    <div className="flex flex-wrap gap-2 mb-6">
+    <div className="grid grid-cols-4 gap-4 mb-6 justify-center px-45">
       {categorias.map((categoria) => (
         <button
           key={categoria}
           onClick={() => onChange(categoria)}
-          className={`px-4 py-2 rounded-full capitalize ${
-            activa === categoria
-              ? "bg-red-500 text-white"
-              : "bg-white text-gray-800 hover:bg-gray-200"
-          } transition`}
+          className={`px-2 rounded-sm capitalize cursor-pointer bg-[#041d33] hover:bg-[#08375f] text-white transition`}
         >
           {categoria}
         </button>

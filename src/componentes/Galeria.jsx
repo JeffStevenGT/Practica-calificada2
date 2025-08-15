@@ -5,10 +5,7 @@ export default function Galeria({ fotos, cargando }) {
     return (
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[...Array(24)].map((_, index) => (
-          <div
-            key={index}
-            className="bg-gray-200 h-40 animate-pulse rounded"
-          ></div>
+          <div key={index} className="bg-gray-200 h-40  rounded"></div>
         ))}
       </div>
     );
